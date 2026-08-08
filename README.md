@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Gina
 
-## Getting Started
+Website toko materi pembelajaran untuk guru SD: sistem pembelajaran, media ajar, RPP, worksheet, dan web absensi.
 
-First, run the development server:
+Dibangun dengan Next.js (App Router), TypeScript, dan Tailwind CSS.
+
+## Pengembangan lokal
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Buka [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Perintah
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Perintah           | Fungsi                                   |
+| ------------------ | ---------------------------------------- |
+| `npm run dev`      | Menjalankan server pengembangan          |
+| `npm run test`     | Menjalankan test (Vitest)                |
+| `npm run lint`     | Menjalankan ESLint                       |
+| `npm run build`    | Build static export ke folder `out/`     |
 
-## Learn More
+## Deploy ke GitHub Pages
 
-To learn more about Next.js, take a look at the following resources:
+Situs ini menggunakan static export dan di-deploy otomatis ke GitHub Pages melalui GitHub Actions (`.github/workflows/deploy.yml`).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Push perubahan ke branch `main`.
+2. Di repo GitHub: **Settings → Pages → Source → GitHub Actions**.
+3. Workflow otomatis menjalankan lint, test, build, lalu deploy.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Situs live di `https://<username>.github.io/bisnis/`.
