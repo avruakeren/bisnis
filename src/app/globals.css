@@ -2,7 +2,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #18181b;
 }
 
 @theme inline {
@@ -12,15 +12,56 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+body {
+  background: transparent;
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+@layer components {
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.55);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  }
+
+  .glass-strong {
+    background: rgba(255, 255, 255, 0.72);
+    -webkit-backdrop-filter: blur(24px);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 16px 44px rgba(0, 0, 0, 0.1);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition: opacity 700ms ease-out, transform 700ms ease-out;
+}
+
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-card-in {
+  animation: card-in 500ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-hidden {
+    transition: none;
+  }
+  .animate-card-in {
+    animation: none;
+  }
 }

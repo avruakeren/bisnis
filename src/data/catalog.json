@@ -1,0 +1,236 @@
+[
+  {
+    "id": "ma-kelas-1-bindo",
+    "title": "Media Ajar Bahasa Indonesia Kelas 1: Membaca Permulaan",
+    "jenis": "media-pembelajaran",
+    "kelas": 1,
+    "mapel": "Bahasa Indonesia",
+    "deskripsi": "Kartu kata dan lembar latihan membaca permulaan yang interaktif untuk membantu siswa mengenal huruf dan suku kata sederhana.",
+    "harga": 25000
+  },
+  {
+    "id": "rpp-kelas-1-matematika",
+    "title": "RPP Matematika Kelas 1: Bilangan 1-10",
+    "jenis": "rpp",
+    "kelas": 1,
+    "mapel": "Matematika",
+    "deskripsi": "Rencana Pelaksanaan Pembelajaran lengkap untuk materi mengenal bilangan 1-10, termasuk kegiatan pembuka, inti, dan penutup.",
+    "harga": 30000
+  },
+  {
+    "id": "ma-kelas-2-matematika",
+    "title": "Media Ajar Matematika Kelas 2: Penjumlahan dan Pengurangan",
+    "jenis": "media-pembelajaran",
+    "kelas": 2,
+    "mapel": "Matematika",
+    "deskripsi": "Media ajar visual dengan soal cerita penjumlahan dan pengurangan untuk mengasah kemampuan berhitung siswa kelas 2.",
+    "harga": 25000
+  },
+  {
+    "id": "rpp-kelas-2-bindo",
+    "title": "RPP Bahasa Indonesia Kelas 2: Menulis Kalimat Sederhana",
+    "jenis": "rpp",
+    "kelas": 2,
+    "mapel": "Bahasa Indonesia",
+    "deskripsi": "RPP berorientasi kurikulum merdeka untuk materi menulis kalimat sederhana dengan ejaan yang benar.",
+    "harga": 30000
+  },
+  {
+    "id": "ma-kelas-3-ipa",
+    "title": "Media Ajar IPA Kelas 3: Pengelompokan Tumbuhan",
+    "jenis": "media-pembelajaran",
+    "kelas": 3,
+    "mapel": "IPA",
+    "deskripsi": "Slide interaktif dan video singkat mengenai pengelompokan tumbuhan berdasarkan bagian dan manfaatnya bagi manusia.",
+    "harga": 35000
+  },
+  {
+    "id": "rpp-kelas-3-ips",
+    "title": "RPP IPS Kelas 3: Kenampakan Alam",
+    "jenis": "rpp",
+    "kelas": 3,
+    "mapel": "IPS",
+    "deskripsi": "RPP yang memuat kegiatan pembelajaran tentang kenampakan alam dan buatan lengkap dengan lembar kerja siswa.",
+    "harga": 30000
+  },
+  {
+    "id": "ma-kelas-4-ips",
+    "title": "Media Ajar IPS Kelas 4: Keanekaragaman Budaya Indonesia",
+    "jenis": "media-pembelajaran",
+    "kelas": 4,
+    "mapel": "IPS",
+    "deskripsi": "Media ajar dengan peta budaya, permainan kuis, dan infografis tentang keberagaman suku dan budaya di Indonesia.",
+    "harga": 35000
+  },
+  {
+    "id": "rpp-kelas-4-ipa",
+    "title": "RPP IPA Kelas 4: Daur Hidup Makhluk Hidup",
+    "jenis": "rpp",
+    "kelas": 4,
+    "mapel": "IPA",
+    "deskripsi": "Rencana pembelajaran mengenai daur hidup hewan dengan metode observasi dan penugasan proyek.",
+    "harga": 30000
+  },
+  {
+    "id": "ma-kelas-5-matematika",
+    "title": "Media Ajar Matematika Kelas 5: Pecahan dan Desimal",
+    "jenis": "media-pembelajaran",
+    "kelas": 5,
+    "mapel": "Matematika",
+    "deskripsi": "Media ajar interaktif untuk memahami pecahan, desimal, dan konversinya dilengkapi latihan mandiri.",
+    "harga": 35000
+  },
+  {
+    "id": "rpp-kelas-5-pkn",
+    "title": "RPP PKn Kelas 5: Hak dan Kewajiban Warga Negara",
+    "jenis": "rpp",
+    "kelas": 5,
+    "mapel": "PKn",
+    "deskripsi": "RPP yang mengajak siswa mengenal hak dan kewajiban warga negara melalui studi kasus dan diskusi kelompok.",
+    "harga": 30000
+  },
+  {
+    "id": "ma-kelas-6-ipa",
+    "title": "Media Ajar IPA Kelas 6: Tata Surya",
+    "jenis": "media-pembelajaran",
+    "kelas": 6,
+    "mapel": "IPA",
+    "deskripsi": "Media ajar 3D interaktif tentang planet, satelit, dan benda langit lainnya beserta fakta menariknya.",
+    "harga": 40000
+  },
+  {
+    "id": "rpp-kelas-6-bindo",
+    "title": "RPP Bahasa Indonesia Kelas 6: Teks Laporan",
+    "jenis": "rpp",
+    "kelas": 6,
+    "mapel": "Bahasa Indonesia",
+    "deskripsi": "RPP untuk materi menyusun teks laporan hasil pengamatan sesuai kaidah kebahasaan dan struktur yang benar.",
+    "harga": 30000
+  },
+  {
+    "id": "sp-kelas-1",
+    "title": "Sistem Pembelajaran Kelas 1: Paket Lengkap Semester 1",
+    "jenis": "sistem-pembelajaran",
+    "kelas": 1,
+    "mapel": "Semua Mapel",
+    "deskripsi": "Paket utuh perangkat pembelajaran kelas 1: media ajar, RPP, worksheet, jadwal, dan administrasi guru dalam satu paket.",
+    "harga": 150000
+  },
+  {
+    "id": "sp-kelas-2",
+    "title": "Sistem Pembelajaran Kelas 2: Paket Lengkap Semester 1",
+    "jenis": "sistem-pembelajaran",
+    "kelas": 2,
+    "mapel": "Semua Mapel",
+    "deskripsi": "Paket utuh perangkat pembelajaran kelas 2 yang selaras dengan Kurikulum Merdeka, siap pakai sepanjang semester.",
+    "harga": 150000
+  },
+  {
+    "id": "sp-kelas-3",
+    "title": "Sistem Pembelajaran Kelas 3: Paket Lengkap Semester 1",
+    "jenis": "sistem-pembelajaran",
+    "kelas": 3,
+    "mapel": "Semua Mapel",
+    "deskripsi": "Perangkat pembelajaran lengkap kelas 3, dari modul ajar sampai asesmen, tersusun rapi dan mudah diunduh.",
+    "harga": 150000
+  },
+  {
+    "id": "sp-kelas-4",
+    "title": "Sistem Pembelajaran Kelas 4: Paket Lengkap Semester 1",
+    "jenis": "sistem-pembelajaran",
+    "kelas": 4,
+    "mapel": "Semua Mapel",
+    "deskripsi": "Paket sistem pembelajaran kelas 4 mencakup media, RPP, dan worksheet untuk seluruh tema semester 1.",
+    "harga": 150000
+  },
+  {
+    "id": "sp-kelas-5",
+    "title": "Sistem Pembelajaran Kelas 5: Paket Lengkap Semester 1",
+    "jenis": "sistem-pembelajaran",
+    "kelas": 5,
+    "mapel": "Semua Mapel",
+    "deskripsi": "Sistem pembelajaran kelas 5 lengkap dengan perangkat dan media yang saling terhubung untuk memudahkan mengajar.",
+    "harga": 150000
+  },
+  {
+    "id": "sp-kelas-6",
+    "title": "Sistem Pembelajaran Kelas 6: Paket Lengkap Semester 1",
+    "jenis": "sistem-pembelajaran",
+    "kelas": 6,
+    "mapel": "Semua Mapel",
+    "deskripsi": "Paket lengkap kelas 6 termasuk pendamping persiapan ujian, selaras dengan target kompetensi akhir SD.",
+    "harga": 150000
+  },
+  {
+    "id": "ws-kelas-1",
+    "title": "Worksheet Kelas 1: Lembar Kerja Menulis dan Berhitung",
+    "jenis": "worksheet",
+    "kelas": 1,
+    "mapel": "Tematik",
+    "deskripsi": "Kumpulan lembar kerja siap cetak untuk melatih menulis dan berhitung dasar siswa kelas 1.",
+    "harga": 20000
+  },
+  {
+    "id": "ws-kelas-2",
+    "title": "Worksheet Kelas 2: Lembar Kerja Tematik Semester 1",
+    "jenis": "worksheet",
+    "kelas": 2,
+    "mapel": "Tematik",
+    "deskripsi": "Lembar kerja tematik kelas 2 yang bisa diprint dan dipakai berulang untuk latihan mandiri siswa.",
+    "harga": 20000
+  },
+  {
+    "id": "ws-kelas-3",
+    "title": "Worksheet Kelas 3: Lembar Kerja Tematik Semester 1",
+    "jenis": "worksheet",
+    "kelas": 3,
+    "mapel": "Tematik",
+    "deskripsi": "Paket worksheet kelas 3 berisi latihan soal dan kegiatan yang sesuai capaian pembelajaran kurikulum merdeka.",
+    "harga": 20000
+  },
+  {
+    "id": "ws-kelas-4",
+    "title": "Worksheet Kelas 4: Lembar Kerja Tematik Semester 1",
+    "jenis": "worksheet",
+    "kelas": 4,
+    "mapel": "Tematik",
+    "deskripsi": "Lembar kerja kelas 4 siap cetak, mencakup literasi, numerasi, dan penguatan karakter.",
+    "harga": 20000
+  },
+  {
+    "id": "ws-kelas-5",
+    "title": "Worksheet Kelas 5: Lembar Kerja Tematik Semester 1",
+    "jenis": "worksheet",
+    "kelas": 5,
+    "mapel": "Tematik",
+    "deskripsi": "Kumpulan worksheet kelas 5 untuk pendalaman materi dan latihan menjelang penilaian tengah semester.",
+    "harga": 20000
+  },
+  {
+    "id": "ws-kelas-6",
+    "title": "Worksheet Kelas 6: Lembar Kerja Tematik Semester 1",
+    "jenis": "worksheet",
+    "kelas": 6,
+    "mapel": "Tematik",
+    "deskripsi": "Worksheet kelas 6 lengkap dengan latihan soal ujian untuk memantapkan penguasaan materi akhir SD.",
+    "harga": 20000
+  },
+  {
+    "id": "wa-sd",
+    "title": "Web Absensi Sekolah (SD)",
+    "jenis": "web-absensi",
+    "kelas": null,
+    "mapel": "Manajemen Sekolah",
+    "deskripsi": "Aplikasi absensi berbasis web untuk satu sekolah, lengkap dengan rekap harian dan data siswa.",
+    "harga": 500000
+  },
+  {
+    "id": "wa-plus",
+    "title": "Web Absensi + Rekap Otomatis dan Laporan",
+    "jenis": "web-absensi",
+    "kelas": null,
+    "mapel": "Manajemen Sekolah",
+    "deskripsi": "Versi lengkap web absensi dengan rekap otomatis, laporan bulanan, dan ekspor data untuk pihak sekolah.",
+    "harga": 750000
+  }
+]
