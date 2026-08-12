@@ -1,17 +1,26 @@
 import { describe, expect, test } from "vitest";
 import { fireEvent, render, screen, within } from "@testing-library/react";
+import { CartProvider } from "@/lib/cart-context";
 import Catalog from "../catalog";
 import { catalogItems } from "@/data/catalog";
 
+function renderCatalog(items = catalogItems) {
+  return render(
+    <CartProvider>
+      <Catalog items={items} />
+    </CartProvider>,
+  );
+}
+
 describe("Katalog media ajar", () => {
   test("menampilkan semua item dalam bentuk grid kartu", () => {
-    render(<Catalog items={catalogItems} />);
+    renderCatalog();
     const cards = screen.getAllByRole("article");
     expect(cards).toHaveLength(catalogItems.length);
   });
 
   test("setiap kartu menampilkan judul dan kelas", () => {
-    render(<Catalog items={catalogItems} />);
+    renderCatalog();
     const first = catalogItems[0];
     const card = screen.getByText(first.title).closest("article");
     expect(card).not.toBeNull();
@@ -19,7 +28,7 @@ describe("Katalog media ajar", () => {
   });
 
   test("memfilter katalog berdasarkan kelas", () => {
-    render(<Catalog items={catalogItems} />);
+    renderCatalog();
     fireEvent.click(screen.getByRole("button", { name: "Kelas 3" }));
     const cards = screen.getAllByRole("article");
     expect(cards).toHaveLength(4);
@@ -31,7 +40,7 @@ describe("Katalog media ajar", () => {
   });
 
   test("filter kelas dapat dikembalikan ke Semua Kelas", () => {
-    render(<Catalog items={catalogItems} />);
+    renderCatalog();
     fireEvent.click(screen.getByRole("button", { name: "Kelas 5" }));
     expect(screen.getAllByRole("article")).toHaveLength(4);
     fireEvent.click(screen.getByRole("button", { name: "Semua Kelas" }));
@@ -39,7 +48,7 @@ describe("Katalog media ajar", () => {
   });
 
   test("memfilter katalog berdasarkan jenis RPP", () => {
-    render(<Catalog items={catalogItems} />);
+    renderCatalog();
     fireEvent.click(screen.getByRole("button", { name: "RPP" }));
     const rppCount = catalogItems.filter((item) => item.jenis === "rpp").length;
     const cards = screen.getAllByRole("article");
@@ -50,7 +59,7 @@ describe("Katalog media ajar", () => {
   });
 
   test("kombinasi filter kelas dan jenis bekerja", () => {
-    render(<Catalog items={catalogItems} />);
+    renderCatalog();
     fireEvent.click(screen.getByRole("button", { name: "Kelas 4" }));
     fireEvent.click(screen.getByRole("button", { name: "RPP" }));
     const cards = screen.getAllByRole("article");
@@ -59,7 +68,7 @@ describe("Katalog media ajar", () => {
   });
 
   test("tombol aksi Lihat Detail membuka modal detail", () => {
-    render(<Catalog items={catalogItems} />);
+    renderCatalog();
     const first = catalogItems[0];
     const card = screen.getByText(first.title).closest("article");
     fireEvent.click(
@@ -70,23 +79,21 @@ describe("Katalog media ajar", () => {
     expect(within(dialog).getByText(`Kelas ${first.kelas}`)).toBeDefined();
   });
 
-  test("tombol aksi Pesan menampilkan notifikasi pesanan", () => {
-    render(<Catalog items={catalogItems} />);
+  test("tombol + Keranjang menambahkan item ke keranjang", () => {
+    renderCatalog();
     const first = catalogItems[0];
     const card = screen.getByText(first.title).closest("article");
     fireEvent.click(
-      within(card as HTMLElement).getByRole("button", { name: "Pesan" }),
+      within(card as HTMLElement).getByRole("button", { name: "+ Keranjang" }),
     );
     const status = screen.getByRole("status");
     expect(
-      within(status).getByText(
-        `Pesanan untuk "${first.title}" telah diterima.`,
-      ),
+      within(status).getByText(new RegExp(`ditambahkan ke keranjang`)),
     ).toBeDefined();
   });
 
   test("menampilkan pesan saat tidak ada item yang cocok", () => {
-    render(<Catalog items={[]} />);
+    renderCatalog([]);
     expect(screen.getByText(/Tidak ada item/)).toBeDefined();
   });
 });

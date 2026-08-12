@@ -5,14 +5,14 @@ import { formatHarga, jenisLabel, jenisStyles } from "./format";
 type CatalogCardProps = {
   item: CatalogItem;
   onDetail: () => void;
-  onOrder: () => void;
+  onAddToCart: () => void;
   wide?: boolean;
 };
 
 export default function CatalogCard({
   item,
   onDetail,
-  onOrder,
+  onAddToCart,
   wide = false,
 }: CatalogCardProps) {
   return (
@@ -64,10 +64,10 @@ export default function CatalogCard({
           </button>
           <button
             type="button"
-            onClick={onOrder}
+            onClick={onAddToCart}
             className="flex-1 rounded-xl bg-zinc-900 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-700"
           >
-            Pesan
+            + Keranjang
           </button>
         </div>
       </div>

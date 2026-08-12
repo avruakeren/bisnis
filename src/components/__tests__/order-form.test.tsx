@@ -1,90 +1,66 @@
 import { describe, expect, test, vi } from "vitest";
-import { fireEvent, render, screen } from "@testing-library/react";
-import OrderForm from "../order-form";
+import { render, screen } from "@testing-library/react";
+import { CartProvider } from "@/lib/cart-context";
+import CheckoutPage from "@/app/order/page";
 
-function fillAllFields() {
-  fireEvent.change(screen.getByLabelText(/Nama Lengkap/), {
-    target: { value: "Budi Santoso" },
-  });
-  fireEvent.change(screen.getByLabelText(/Nama Sekolah/), {
-    target: { value: "SDN Harapan Bangsa" },
-  });
-  fireEvent.change(screen.getByLabelText(/Kelas/), {
-    target: { value: "Kelas 4" },
-  });
-  fireEvent.change(screen.getByLabelText(/Detail Pesanan/), {
-    target: { value: "2 paket media ajar IPA" },
-  });
+const mockPush = vi.fn();
+vi.mock("next/navigation", () => ({
+  useRouter: () => ({ push: mockPush }),
+}));
+
+function renderCheckout() {
+  return render(
+    <CartProvider>
+      <CheckoutPage />
+    </CartProvider>,
+  );
 }
 
-describe("Formulir pesanan kustom", () => {
-  test("menampilkan semua input yang diperlukan", () => {
-    render(<OrderForm />);
+describe("Checkout", () => {
+  test("menampilkan pesan keranjang kosong saat tidak ada item", () => {
+    renderCheckout();
+    expect(screen.getByText("Keranjang kosong")).toBeDefined();
+    expect(screen.getByRole("link", { name: /Lihat katalog/ })).toBeDefined();
+  });
+
+  test("menampilkan ringkasan pesanan berisi item dari keranjang", () => {
+    localStorage.setItem(
+      "gina-cart",
+      JSON.stringify([
+        { id: "test-1", title: "Media Ajar IPA Kelas 6", harga: 40000, qty: 2 },
+      ]),
+    );
+    renderCheckout();
+    expect(screen.getByText("Media Ajar IPA Kelas 6")).toBeDefined();
+    expect(screen.getByText(/2.*40\.000/)).toBeDefined();
+    localStorage.removeItem("gina-cart");
+  });
+
+  test("menampilkan form data diri di step 1", () => {
+    localStorage.setItem(
+      "gina-cart",
+      JSON.stringify([
+        { id: "test-1", title: "Media Ajar", harga: 40000, qty: 1 },
+      ]),
+    );
+    renderCheckout();
     expect(screen.getByLabelText(/Nama Lengkap/)).toBeDefined();
     expect(screen.getByLabelText(/Nama Sekolah/)).toBeDefined();
-    expect(screen.getByLabelText(/Kelas/)).toBeDefined();
-    expect(screen.getByLabelText(/Detail Pesanan/)).toBeDefined();
+    expect(screen.getByLabelText(/Nomor WhatsApp/)).toBeDefined();
+    expect(screen.getByRole("button", { name: /Lanjut ke Pembayaran/ })).toBeDefined();
+    localStorage.removeItem("gina-cart");
   });
 
-  test("tombol kirim nonaktif saat formulir kosong", () => {
-    render(<OrderForm />);
-    const button = screen.getByRole("button", { name: "Kirim ke WhatsApp" });
-    expect((button as HTMLButtonElement).disabled).toBe(true);
-  });
-
-  test("tombol kirim tetap nonaktif jika salah satu kolom kosong", () => {
-    render(<OrderForm />);
-    fireEvent.change(screen.getByLabelText(/Nama Lengkap/), {
-      target: { value: "Budi Santoso" },
-    });
-    fireEvent.change(screen.getByLabelText(/Nama Sekolah/), {
-      target: { value: "SDN Harapan Bangsa" },
-    });
-    fireEvent.change(screen.getByLabelText(/Kelas/), {
-      target: { value: "Kelas 4" },
-    });
-    const button = screen.getByRole("button", { name: "Kirim ke WhatsApp" });
-    expect((button as HTMLButtonElement).disabled).toBe(true);
-  });
-
-  test("tombol kirim aktif setelah semua kolom terisi", () => {
-    render(<OrderForm />);
-    fillAllFields();
-    const button = screen.getByRole("button", { name: "Kirim ke WhatsApp" });
-    expect((button as HTMLButtonElement).disabled).toBe(false);
-  });
-
-  test("submit membuka WhatsApp dengan rangkuman isian form", () => {
-    const openSpy = vi
-      .spyOn(window, "open")
-      .mockImplementation(() => null);
-    render(<OrderForm />);
-    fillAllFields();
-    fireEvent.click(screen.getByRole("button", { name: "Kirim ke WhatsApp" }));
-
-    expect(openSpy).toHaveBeenCalledTimes(1);
-    const [url] = openSpy.mock.calls[0] as [string];
-    expect(url).toContain("https://wa.me/");
-    const message = decodeURIComponent(url);
-    expect(message).toContain("Budi Santoso");
-    expect(message).toContain("SDN Harapan Bangsa");
-    expect(message).toContain("Kelas: Kelas 4");
-    expect(message).toContain("2 paket media ajar IPA");
-
-    openSpy.mockRestore();
-  });
-
-  test("submit tidak membuka WhatsApp saat formulir belum lengkap", () => {
-    const openSpy = vi
-      .spyOn(window, "open")
-      .mockImplementation(() => null);
-    render(<OrderForm />);
-    fireEvent.change(screen.getByLabelText(/Nama Lengkap/), {
-      target: { value: "Budi Santoso" },
-    });
-    fireEvent.click(screen.getByRole("button", { name: "Kirim ke WhatsApp" }));
-
-    expect(openSpy).not.toHaveBeenCalled();
-    openSpy.mockRestore();
+  test("tombol lanjut nonaktif saat form belum lengkap", () => {
+    localStorage.setItem(
+      "gina-cart",
+      JSON.stringify([
+        { id: "test-1", title: "Media Ajar", harga: 40000, qty: 1 },
+      ]),
+    );
+    renderCheckout();
+    const btn = screen.getByRole("button", { name: /Lanjut ke Pembayaran/ });
+    expect((btn as HTMLButtonElement).disabled).toBe(true);
+    localStorage.removeItem("gina-cart");
   });
 });

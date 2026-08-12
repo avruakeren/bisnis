@@ -34,6 +34,17 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.7);
     box-shadow: 0 16px 44px rgba(0, 0, 0, 0.1);
   }
+
+  .liquid-glass {
+    background: rgba(255, 255, 255, 0.45);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    border-radius: 2rem;
+  }
 }
 
 .reveal-hidden {
@@ -57,6 +68,26 @@ body {
   animation: card-in 500ms ease-out both;
 }
 
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer-bg {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal-hidden {
     transition: none;
@@ -64,4 +95,53 @@ body {
   .animate-card-in {
     animation: none;
   }
+  .shimmer-bg {
+    animation: none;
+  }
+  .snap-scroll {
+    scroll-snap-type: none !important;
+  }
+}
+
+.snap-scroll {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animated-gradient {
+  background: linear-gradient(
+    -45deg,
+    #0f172a,
+    #1e1b4b,
+    #0c4a6e,
+    #164e63,
+    #0f172a
+  );
+  background-size: 400% 400%;
+  animation: gradient-shift 12s ease infinite;
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -20px) scale(1.05);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+}
+
+.blob {
+  animation: float-slow 20s ease-in-out infinite;
 }

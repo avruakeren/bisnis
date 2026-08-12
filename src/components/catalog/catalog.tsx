@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import type { CatalogItem } from "@/data/catalog";
+import { useCart } from "@/lib/cart-context";
 import CatalogCard from "./catalog-card";
 import { formatHarga, jenisLabel, jenisStyles } from "./format";
 
@@ -25,7 +26,8 @@ export default function Catalog({ items }: CatalogProps) {
   const [kelasFilter, setKelasFilter] = useState<number | null>(null);
   const [jenisFilter, setJenisFilter] = useState<JenisFilter>("semua");
   const [selectedItem, setSelectedItem] = useState<CatalogItem | null>(null);
-  const [orderMessage, setOrderMessage] = useState<string | null>(null);
+  const [addedItem, setAddedItem] = useState<string | null>(null);
+  const { addItem } = useCart();
 
   const filteredItems = useMemo(() => {
     return items.filter((item) => {
@@ -111,11 +113,11 @@ export default function Catalog({ items }: CatalogProps) {
                   item={item}
                   wide={wide}
                   onDetail={() => setSelectedItem(item)}
-                  onOrder={() =>
-                    setOrderMessage(
-                      `Pesanan untuk "${item.title}" telah diterima.`,
-                    )
-                  }
+                  onAddToCart={() => {
+                    addItem({ id: item.id, title: item.title, harga: item.harga });
+                    setAddedItem(item.title);
+                    setTimeout(() => setAddedItem(null), 2000);
+                  }}
                 />
               </div>
             );
@@ -127,16 +129,18 @@ export default function Catalog({ items }: CatalogProps) {
         </p>
       )}
 
-      {orderMessage && (
+      {addedItem && (
         <div
           role="status"
           aria-live="polite"
           className="fixed bottom-6 left-1/2 z-40 flex w-[calc(100%-3rem)] max-w-md -translate-x-1/2 items-center gap-4 rounded-2xl bg-white/70 p-4 shadow-xl ring-1 ring-white/60 backdrop-blur-xl"
         >
-          <p className="flex-1 text-sm">{orderMessage}</p>
+          <p className="flex-1 text-sm">
+            <span className="font-medium">{addedItem}</span> ditambahkan ke keranjang.
+          </p>
           <button
             type="button"
-            onClick={() => setOrderMessage(null)}
+            onClick={() => setAddedItem(null)}
             className="text-sm font-medium underline underline-offset-2"
           >
             Tutup
