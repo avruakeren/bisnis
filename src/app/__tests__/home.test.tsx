@@ -3,56 +3,39 @@ import { render, screen } from "@testing-library/react";
 import Home from "@/app/page";
 
 describe("Landing page", () => {
-  test("menampilkan perkenalan utama", () => {
+  test("menampilkan hero utama", () => {
     render(<Home />);
-    expect(screen.getByText("Selamat datang di website Gina")).toBeDefined();
     expect(
-      screen.getByRole("heading", { level: 1, name: /Produk pembelajaran/ }),
+      screen.getByRole("heading", { level: 1, name: /Kami Bantu/ }),
     ).toBeDefined();
   });
 
-  test("mengenalkan lima jenis produk satu per satu", () => {
+  test("menampilkan tiga layanan utama", () => {
     render(<Home />);
+    expect(screen.getByText("Layanan Kami")).toBeDefined();
+    expect(screen.getAllByText("Website").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("Kebutuhan Akademik").length).toBeGreaterThan(0);
     expect(
-      screen.getAllByText("Sistem Pembelajaran").length,
-    ).toBeGreaterThan(0);
-    expect(
-      screen.getAllByText("Media Pembelajaran").length,
-    ).toBeGreaterThan(0);
-    expect(screen.getAllByText("RPP").length).toBeGreaterThan(0);
-    expect(screen.getAllByText("Worksheet").length).toBeGreaterThan(0);
-    expect(
-      screen.getAllByText("Web Absensi").length,
+      screen.getAllByText("Perangkat Pembelajaran").length,
     ).toBeGreaterThan(0);
   });
 
-  test("menampilkan contoh produk di katalog", () => {
+  test("menampilkan bagian kenapa pilih kami", () => {
     render(<Home />);
-    expect(
-      screen.getAllByText(
-        "Media Ajar Bahasa Indonesia Kelas 1: Membaca Permulaan",
-      ).length,
-    ).toBeGreaterThan(0);
-    expect(
-      screen.getAllByText("Web Absensi + Rekap Otomatis dan Laporan").length,
-    ).toBeGreaterThan(0);
+    expect(screen.getByText("Kenapa Pilih Kami?")).toBeDefined();
   });
 
-  test("memandu langkah cara memesan", () => {
+  test("memandu cara kerja dalam empat langkah", () => {
     render(<Home />);
-    expect(screen.getAllByText("Pilih produk").length).toBeGreaterThan(0);
-    expect(
-      screen.getAllByText("Isi form sederhana").length,
-    ).toBeGreaterThan(0);
-    expect(
-      screen.getAllByText("Kirim ke WhatsApp").length,
-    ).toBeGreaterThan(0);
+    expect(screen.getByText("Cara Kerja")).toBeDefined();
+    expect(screen.getAllByText("Konsultasi").length).toBeGreaterThan(0);
+    expect(screen.getByText("Tentukan Layanan")).toBeDefined();
+    expect(screen.getByText("Pengerjaan")).toBeDefined();
+    expect(screen.getByText("Revisi & Selesai")).toBeDefined();
   });
 
-  test("menampilkan tautan untuk memesan", () => {
+  test("menampilkan ajakan konsultasi gratis", () => {
     render(<Home />);
-    expect(
-      screen.getAllByText("Mulai pesan sekarang").length,
-    ).toBeGreaterThan(0);
+    expect(screen.getAllByText("Konsultasi Gratis").length).toBeGreaterThan(0);
   });
 });

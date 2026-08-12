@@ -13,21 +13,26 @@ function renderNavbar() {
 
 test("Navbar menampilkan nama brand", () => {
   renderNavbar();
-  expect(screen.getByRole("link", { name: "Gina" })).toBeDefined();
+  expect(
+    screen.getByRole("link", { name: /studia\.co/ }),
+  ).toBeDefined();
 });
 
 test("Navbar menampilkan tombol menu burger", () => {
   renderNavbar();
-  expect(
-    screen.getByRole("button", { name: "Buka menu" }),
-  ).toBeDefined();
+  expect(screen.getByRole("button", { name: "Buka menu" })).toBeDefined();
 });
 
-test("Navbar menyembunyikan tautan sampai menu dibuka", () => {
+test("Navbar menampilkan tautan navigasi", () => {
   renderNavbar();
-  expect(screen.queryByRole("link", { name: "Tentang" })).toBeNull();
-  fireEvent.click(screen.getByRole("button", { name: "Buka menu" }));
-  expect(screen.getByRole("link", { name: "Beranda" })).toBeDefined();
-  expect(screen.getByRole("link", { name: "Tentang" })).toBeDefined();
+  expect(screen.getByRole("link", { name: "Layanan" })).toBeDefined();
+  expect(screen.getByRole("link", { name: "Cara Kerja" })).toBeDefined();
+  expect(screen.getByRole("link", { name: "Katalog" })).toBeDefined();
   expect(screen.getByRole("link", { name: "Kontak" })).toBeDefined();
+});
+
+test("Navbar membuka menu mobile saat burger diklik", () => {
+  renderNavbar();
+  fireEvent.click(screen.getByRole("button", { name: "Buka menu" }));
+  expect(screen.getByRole("button", { name: "Tutup menu" })).toBeDefined();
 });

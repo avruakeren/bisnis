@@ -65,7 +65,7 @@ export default function CatalogCard({
           <button
             type="button"
             onClick={onAddToCart}
-            className="flex-1 rounded-xl bg-zinc-900 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-700"
+            className="flex-1 rounded-xl bg-primary px-4 py-2 text-sm font-medium text-on-primary transition-colors hover:bg-primary-container"
           >
             + Keranjang
           </button>

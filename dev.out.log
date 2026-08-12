@@ -1,0 +1,107 @@
+
+> nextjs-app@0.1.0 dev
+> next dev
+
+▲ Next.js 16.3.0 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://10.100.210.152:3000
+✓ Ready in 671ms
+✓ Running next.config.ts took 50ms
+
+ GET / 200 in 862ms (next.js: 395ms, application-code: 467ms)
+ GET / 200 in 176ms (next.js: 11ms, application-code: 164ms)
+ GET /catalog/ 200 in 624ms (next.js: 567ms, application-code: 58ms)
+ GET / 200 in 87ms (next.js: 10ms, application-code: 76ms)
+✓ Compiled in 230ms
+ GET / 200 in 162ms (next.js: 27ms, application-code: 135ms)
+✓ Compiled in 152ms
+ GET / 200 in 152ms (next.js: 25ms, application-code: 126ms)
+✓ Compiled in 134ms
+ GET / 200 in 149ms (next.js: 22ms, application-code: 127ms)
+ GET / 200 in 122ms (next.js: 21ms, application-code: 101ms)
+ GET / 200 in 142ms (next.js: 23ms, application-code: 119ms)
+ GET / 200 in 138ms (next.js: 25ms, application-code: 113ms)
+ GET / 200 in 135ms (next.js: 24ms, application-code: 111ms)
+ GET / 200 in 119ms (next.js: 21ms, application-code: 98ms)
+✓ Compiled in 129ms
+✓ Compiled in 123ms
+ GET / 200 in 120ms (next.js: 11ms, application-code: 109ms)
+ GET / 200 in 104ms (next.js: 11ms, application-code: 93ms)
+ GET / 200 in 106ms (next.js: 11ms, application-code: 95ms)
+ GET / 200 in 258ms (next.js: 9ms, application-code: 250ms)
+ GET / 200 in 194ms (next.js: 11ms, application-code: 183ms)
+✓ Compiled in 176ms
+ GET / 200 in 305ms (next.js: 31ms, application-code: 275ms)
+ GET / 200 in 139ms (next.js: 13ms, application-code: 126ms)
+✓ Compiled in 106ms
+ GET / 500 in 257ms (next.js: 25ms, application-code: 232ms)
+ GET / 500 in 189ms (next.js: 13ms, application-code: 176ms)
+ GET / 200 in 425ms (next.js: 28ms, application-code: 397ms)
+ GET / 200 in 204ms (next.js: 11ms, application-code: 193ms)
+✓ Compiled in 93ms
+ GET / 200 in 257ms (next.js: 28ms, application-code: 229ms)
+ GET / 200 in 132ms (next.js: 14ms, application-code: 119ms)
+ GET / 200 in 283ms (next.js: 87ms, application-code: 196ms)
+ GET / 200 in 114ms (next.js: 13ms, application-code: 101ms)
+ GET / 200 in 22ms (next.js: 10ms, application-code: 12ms)
+ GET / 200 in 203ms (next.js: 17ms, application-code: 186ms)
+ GET /catalog/ 200 in 63ms (next.js: 24ms, application-code: 39ms)
+ GET /cart/ 200 in 447ms (next.js: 419ms, application-code: 28ms)
+ GET /order/ 200 in 675ms (next.js: 641ms, application-code: 34ms)
+ GET / 200 in 112ms (next.js: 13ms, application-code: 99ms)
+ GET /catalog/ 200 in 53ms (next.js: 13ms, application-code: 39ms)
+✓ Compiled in 200ms
+✓ Compiled in 144ms
+✓ Compiled in 177ms
+ GET /catalog/ 200 in 289ms (next.js: 36ms, application-code: 253ms)
+ GET / 200 in 299ms (next.js: 75ms, application-code: 224ms)
+ GET / 200 in 138ms (next.js: 14ms, application-code: 124ms)
+✓ Compiled in 144ms
+ GET /catalog/ 200 in 283ms (next.js: 13ms, application-code: 269ms)
+ GET / 200 in 245ms (next.js: 28ms, application-code: 218ms)
+ GET / 200 in 129ms (next.js: 11ms, application-code: 117ms)
+ GET /catalog/ 200 in 151ms (next.js: 12ms, application-code: 139ms)
+ GET / 200 in 280ms (next.js: 29ms, application-code: 251ms)
+ GET / 200 in 132ms (next.js: 13ms, application-code: 120ms)
+✓ Compiled in 134ms
+ GET /catalog/ 200 in 141ms (next.js: 13ms, application-code: 127ms)
+ GET / 200 in 268ms (next.js: 36ms, application-code: 232ms)
+ GET / 200 in 100ms (next.js: 12ms, application-code: 88ms)
+ GET /catalog/ 200 in 242ms (next.js: 101ms, application-code: 141ms)
+ GET / 200 in 259ms (next.js: 25ms, application-code: 234ms)
+ GET / 200 in 116ms (next.js: 11ms, application-code: 105ms)
+ GET /catalog/ 200 in 349ms (next.js: 95ms, application-code: 255ms)
+ GET / 200 in 363ms (next.js: 136ms, application-code: 227ms)
+ GET / 200 in 136ms (next.js: 13ms, application-code: 123ms)
+ GET /catalog/ 200 in 287ms (next.js: 32ms, application-code: 256ms)
+ GET / 200 in 296ms (next.js: 75ms, application-code: 221ms)
+ GET / 200 in 113ms (next.js: 10ms, application-code: 103ms)
+ GET / 200 in 316ms (next.js: 11ms, application-code: 305ms)
+ GET / 200 in 177ms (next.js: 11ms, application-code: 166ms)
+✓ Compiled in 109ms
+ GET /catalog/ 200 in 310ms (next.js: 27ms, application-code: 283ms)
+ GET / 200 in 586ms (next.js: 41ms, application-code: 545ms)
+ GET / 200 in 359ms (next.js: 83ms, application-code: 275ms)
+ GET / 200 in 175ms (next.js: 15ms, application-code: 160ms)
+ GET / 200 in 200ms (next.js: 10ms, application-code: 190ms)
+ GET / 200 in 184ms (next.js: 16ms, application-code: 168ms)
+ GET / 200 in 197ms (next.js: 12ms, application-code: 184ms)
+ GET /cart/ 200 in 58ms (next.js: 24ms, application-code: 34ms)
+ GET / 200 in 116ms (next.js: 10ms, application-code: 106ms)
+ GET / 200 in 202ms (next.js: 16ms, application-code: 186ms)
+ GET /catalog/ 200 in 465ms (next.js: 38ms, application-code: 428ms)
+ GET / 200 in 496ms (next.js: 91ms, application-code: 405ms)
+ GET / 200 in 299ms (next.js: 13ms, application-code: 286ms)
+ GET / 200 in 170ms (next.js: 12ms, application-code: 158ms)
+ GET /catalog/ 200 in 54ms (next.js: 12ms, application-code: 42ms)
+✓ Compiled in 74ms
+ GET /catalog/ 200 in 157ms (next.js: 17ms, application-code: 139ms)
+ GET / 200 in 293ms (next.js: 21ms, application-code: 272ms)
+ GET / 200 in 166ms (next.js: 61ms, application-code: 104ms)
+ GET / 200 in 175ms (next.js: 11ms, application-code: 165ms)
+ GET /catalog/ 200 in 154ms (next.js: 113ms, application-code: 41ms)
+ GET / 200 in 168ms (next.js: 26ms, application-code: 142ms)
+ GET /catalog/ 200 in 66ms (next.js: 19ms, application-code: 47ms)
+ GET / 200 in 198ms (next.js: 22ms, application-code: 177ms)
+ GET /catalog/ 200 in 59ms (next.js: 19ms, application-code: 40ms)
+ GET / 200 in 182ms (next.js: 23ms, application-code: 159ms)

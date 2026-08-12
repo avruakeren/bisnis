@@ -1,49 +1,127 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #18181b;
+@theme inline {
+  /* Surfaces */
+  --color-background: #f8f9ff;
+  --color-on-background: #0b1c30;
+  --color-surface: #f8f9ff;
+  --color-surface-dim: #cbdbf5;
+  --color-surface-bright: #f8f9ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #eff4ff;
+  --color-surface-container: #e5eeff;
+  --color-surface-container-high: #dce9ff;
+  --color-surface-container-highest: #d3e4fe;
+  --color-surface-variant: #d3e4fe;
+  --color-on-surface: #0b1c30;
+  --color-on-surface-variant: #434655;
+
+  /* Inverse */
+  --color-inverse-surface: #213145;
+  --color-inverse-on-surface: #eaf1ff;
+  --color-inverse-primary: #b7c4ff;
+
+  /* Outline */
+  --color-outline: #747686;
+  --color-outline-variant: #c4c5d7;
+
+  /* Primary */
+  --color-primary: #0037b0;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #1d4ed8;
+  --color-on-primary-container: #cad3ff;
+  --color-surface-tint: #2151da;
+
+  /* Secondary */
+  --color-secondary: #565e74;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #dae2fd;
+  --color-on-secondary-container: #5c647a;
+
+  /* Tertiary */
+  --color-tertiary: #414546;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #595c5e;
+  --color-on-tertiary-container: #d2d4d6;
+
+  /* Error */
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+
+  /* Fixed */
+  --color-primary-fixed: #dce1ff;
+  --color-primary-fixed-dim: #b7c4ff;
+  --color-on-primary-fixed: #001551;
+  --color-on-primary-fixed-variant: #0039b5;
+  --color-secondary-fixed: #dae2fd;
+  --color-secondary-fixed-dim: #bec6e0;
+  --color-on-secondary-fixed: #131b2e;
+  --color-on-secondary-fixed-variant: #3f465c;
+  --color-tertiary-fixed: #e0e3e5;
+  --color-tertiary-fixed-dim: #c4c7c9;
+  --color-on-tertiary-fixed: #191c1e;
+  --color-on-tertiary-fixed-variant: #444749;
+
+  /* Fonts */
+  --font-headline: var(--font-headline-google), "Hanken Grotesk", ui-sans-serif, sans-serif;
+  --font-body: var(--font-body-google), Inter, ui-sans-serif, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+:root {
+  --background: #f8f9ff;
+  --foreground: #0b1c30;
 }
 
 body {
-  background: transparent;
+  background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
 }
 
 @layer components {
   .glass-panel {
-    background: rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.7);
     -webkit-backdrop-filter: blur(16px);
     backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.65);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(196, 197, 215, 0.5);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   }
 
   .glass-strong {
-    background: rgba(255, 255, 255, 0.72);
+    background: rgba(255, 255, 255, 0.82);
     -webkit-backdrop-filter: blur(24px);
     backdrop-filter: blur(24px);
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    box-shadow: 0 16px 44px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(196, 197, 215, 0.6);
+    box-shadow: 0 16px 44px rgba(0, 0, 0, 0.08);
   }
 
   .liquid-glass {
-    background: rgba(255, 255, 255, 0.45);
+    background: rgba(255, 255, 255, 0.6);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
     backdrop-filter: blur(20px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.5);
     box-shadow:
       0 8px 32px rgba(0, 0, 0, 0.06),
       inset 0 1px 0 rgba(255, 255, 255, 0.6);
-    border-radius: 2rem;
+    border-radius: 1rem;
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.5);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    backdrop-filter: blur(18px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  }
+
+  .glass-nav {
+    background: rgba(255, 255, 255, 0.55);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
   }
 }
 
@@ -88,48 +166,6 @@ body {
   animation: shimmer 3s ease-in-out infinite;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .reveal-hidden {
-    transition: none;
-  }
-  .animate-card-in {
-    animation: none;
-  }
-  .shimmer-bg {
-    animation: none;
-  }
-  .snap-scroll {
-    scroll-snap-type: none !important;
-  }
-}
-
-.snap-scroll {
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-}
-
-@keyframes gradient-shift {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-.animated-gradient {
-  background: linear-gradient(
-    -45deg,
-    #0f172a,
-    #1e1b4b,
-    #0c4a6e,
-    #164e63,
-    #0f172a
-  );
-  background-size: 400% 400%;
-  animation: gradient-shift 12s ease infinite;
-}
-
 @keyframes float-slow {
   0%, 100% {
     transform: translate(0, 0) scale(1);
@@ -144,4 +180,75 @@ body {
 
 .blob {
   animation: float-slow 20s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes word-in {
+  from {
+    opacity: 0;
+    transform: translateY(40%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-word {
+  display: inline-block;
+  animation: word-in 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.stagger-reveal > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+
+.stagger-reveal.is-revealed > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+  .animate-word {
+    animation: none;
+  }
+  .stagger-reveal > * {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-hidden {
+    transition: none;
+  }
+  .animate-card-in {
+    animation: none;
+  }
+  .shimmer-bg {
+    animation: none;
+  }
+  .blob {
+    animation: none;
+  }
 }

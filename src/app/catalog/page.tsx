@@ -4,7 +4,7 @@ import { catalogItems } from "@/data/catalog";
 
 export const metadata: Metadata = {
   title: "Katalog",
-  description: "Katalog media ajar dan RPP untuk kelas 1 hingga kelas 6.",
+  description: "Katalog media ajar dan perangkat pembelajaran untuk kelas 1 hingga kelas 6.",
 };
 
 export default function CatalogPage() {

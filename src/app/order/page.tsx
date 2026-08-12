@@ -5,9 +5,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCart } from "@/lib/cart-context";
 import { formatHarga } from "@/components/catalog/format";
+import { site } from "@/lib/site";
 import { ArrowLeft, ArrowRight, CheckCircle, ShoppingCart } from "@phosphor-icons/react";
-
-const WHATSAPP_NUMBER = "6281234567890";
 
 const inputClass =
   "w-full rounded-lg bg-white/70 px-3.5 py-2.5 text-sm outline-none ring-1 ring-white/60 backdrop-blur-md transition-colors focus:ring-2 focus:ring-zinc-900/30";
@@ -34,7 +33,7 @@ export default function CheckoutPage() {
         </p>
         <Link
           href="/catalog"
-          className="mt-6 inline-flex items-center gap-2 rounded-xl bg-zinc-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-700"
+          className="mt-6 inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-sm font-medium text-on-primary transition-colors hover:bg-primary-container"
         >
           Lihat katalog
           <ArrowRight size={14} weight="bold" />
@@ -69,7 +68,7 @@ export default function CheckoutPage() {
 
     clearCart();
     window.open(
-      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
+      `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(message)}`,
       "_blank",
     );
     router.push("/");
@@ -91,7 +90,7 @@ export default function CheckoutPage() {
       <div className="mt-6 flex items-center gap-2 text-sm">
         <span
           className={`flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold ${
-            step === "data" ? "bg-zinc-900 text-white" : "bg-emerald-500 text-white"
+            step === "data" ? "bg-primary text-on-primary" : "bg-emerald-500 text-white"
           }`}
         >
           {step === "data" ? "1" : <CheckCircle size={12} weight="bold" />}
@@ -102,7 +101,7 @@ export default function CheckoutPage() {
         <span className="text-zinc-300">—</span>
         <span
           className={`flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold ${
-            step === "qris" ? "bg-zinc-900 text-white" : "bg-zinc-200 text-zinc-400"
+            step === "qris" ? "bg-primary text-on-primary" : "bg-white/60 text-zinc-400 ring-1 ring-white/70"
           }`}
         >
           2
@@ -188,7 +187,7 @@ export default function CheckoutPage() {
           <button
             type="submit"
             disabled={!isValid}
-            className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-zinc-900 px-6 py-3 text-sm font-medium text-white transition-colors enabled:hover:bg-zinc-700 disabled:cursor-not-allowed disabled:opacity-50"
+            className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-medium text-on-primary transition-colors enabled:hover:bg-primary-container disabled:cursor-not-allowed disabled:opacity-50"
           >
             Lanjut ke Pembayaran
             <ArrowRight size={14} weight="bold" />

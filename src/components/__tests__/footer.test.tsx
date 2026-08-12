@@ -4,10 +4,10 @@ import Footer from "../footer";
 
 test("Footer menampilkan nama brand", () => {
   render(<Footer />);
-  expect(screen.getByText(/Gina/)).toBeDefined();
+  expect(screen.getAllByText(/studia\.co/).length).toBeGreaterThan(0);
 });
 
-test("Footer menampilkan tagline produk", () => {
+test("Footer menampilkan deskripsi layanan", () => {
   render(<Footer />);
-  expect(screen.getByText(/Materi pembelajaran untuk sekolah SD/)).toBeDefined();
+  expect(screen.getByText(/Membantu kebutuhan digital/)).toBeDefined();
 });

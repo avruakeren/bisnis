@@ -37,7 +37,7 @@ export default function Catalog({ items }: CatalogProps) {
     });
   }, [items, kelasFilter, jenisFilter]);
 
-  const activeFilterClass = "bg-zinc-900 text-white ring-zinc-900";
+  const activeFilterClass = "bg-primary text-on-primary ring-primary";
   const inactiveFilterClass =
     "bg-white/60 text-zinc-600 ring-white/70 backdrop-blur-md hover:bg-white/90";
 
@@ -199,7 +199,7 @@ export default function Catalog({ items }: CatalogProps) {
             <button
               type="button"
               onClick={() => setSelectedItem(null)}
-              className="mt-6 w-full rounded-lg bg-zinc-900 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-700"
+              className="mt-6 w-full rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-on-primary transition-colors hover:bg-primary-container"
             >
               Tutup
             </button>

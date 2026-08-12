@@ -16,7 +16,7 @@ export default function CartPage() {
         <p className="mt-2 text-zinc-500">Belum ada produk yang ditambahkan.</p>
         <Link
           href="/catalog"
-          className="mt-6 inline-flex items-center gap-2 rounded-xl bg-zinc-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-700"
+          className="mt-6 inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-sm font-medium text-on-primary transition-colors hover:bg-primary-container"
         >
           Lihat katalog
           <ArrowRight size={14} weight="bold" />
@@ -88,7 +88,7 @@ export default function CartPage() {
 
       <Link
         href="/order"
-        className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-zinc-900 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-zinc-700"
+        className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-medium text-on-primary transition-colors hover:bg-primary-container"
       >
         Lanjut ke Checkout
         <ArrowRight size={14} weight="bold" />
