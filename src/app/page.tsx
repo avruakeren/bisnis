@@ -223,7 +223,7 @@ node: (
       key: "cara-order",
       label: "Cara order",
       node: (
-        <Scene seed="gina-order" alt="Ilustrasi cara memesan" flip>
+        <Scene seed="gina-order" alt="Ilustrasi cara memesan">
           <p className="text-sm font-medium text-blue-300">Cara memesan</p>
           <h2 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
             Cara memesannya gampang
