@@ -93,7 +93,7 @@ type SceneProps = {
 
 function Scene({ children, seed, alt }: SceneProps) {
   return (
-    <div className="scene-content mx-auto flex h-full w-full max-w-6xl items-center px-4 py-6 sm:px-6 sm:py-10">
+    <div className="scene-content mx-auto flex h-full w-full max-w-6xl items-center px-4 pt-20 pb-6 sm:px-6 sm:py-10">
       <div className="relative flex w-full items-end overflow-hidden rounded-[2.5rem] border border-white/10 bg-zinc-900 shadow-2xl shadow-black/30" style={{ height: "calc(100vh - 5rem)" }}>
         <div className="scene-image absolute inset-0">
           <SceneImage seed={seed} alt={alt} />
@@ -196,7 +196,7 @@ node: (
       key: "contoh",
       label: "Contoh",
       node: (
-        <div className="scene-content mx-auto flex h-full w-full max-w-6xl items-center px-4 py-6 sm:px-6 sm:py-10">
+<div className="scene-content mx-auto flex h-full w-full max-w-6xl items-center px-4 pt-20 pb-6 sm:px-6 sm:py-10">
           <div className="relative flex w-full flex-col justify-end overflow-hidden rounded-[2.5rem] border border-white/10 bg-zinc-900 shadow-2xl shadow-black/30" style={{ height: "calc(100vh - 5rem)" }}>
             <div className="scene-image absolute inset-0 bg-gradient-to-br from-zinc-800 via-zinc-900 to-zinc-950" />
             <div className="relative z-10 flex flex-col px-6 pb-8 sm:px-10 sm:pb-12">
