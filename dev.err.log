@@ -389,3 +389,11 @@ Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
 [browser] React does not recognize the `suppressHydrationMismatch` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `suppresshydrationmismatch` instead. If you accidentally passed it from a parent component, remove it from the DOM element. 
 [browser] Image with src "https://picsum.photos/seed/studia-hero/900/900" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
 Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[browser] Image with src "https://picsum.photos/seed/studia-hero/900/900" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[browser] Image with src "https://picsum.photos/seed/ma-kelas-1-bindo/800/500" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[browser] Image with src "https://picsum.photos/seed/rpp-kelas-1-matematika/800/500" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[browser] Image with src "https://picsum.photos/seed/ma-kelas-1-bindo/800/500" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading

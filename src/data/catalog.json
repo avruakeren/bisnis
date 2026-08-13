@@ -114,7 +114,8 @@
     "kelas": 1,
     "mapel": "Semua Mapel",
     "deskripsi": "Paket utuh perangkat pembelajaran kelas 1: media ajar, RPP, worksheet, jadwal, dan administrasi guru dalam satu paket.",
-    "harga": 150000
+    "harga": 150000,
+    "isJasa": true
   },
   {
     "id": "sp-kelas-2",
@@ -123,7 +124,8 @@
     "kelas": 2,
     "mapel": "Semua Mapel",
     "deskripsi": "Paket utuh perangkat pembelajaran kelas 2 yang selaras dengan Kurikulum Merdeka, siap pakai sepanjang semester.",
-    "harga": 150000
+    "harga": 150000,
+    "isJasa": true
   },
   {
     "id": "sp-kelas-3",
@@ -132,7 +134,8 @@
     "kelas": 3,
     "mapel": "Semua Mapel",
     "deskripsi": "Perangkat pembelajaran lengkap kelas 3, dari modul ajar sampai asesmen, tersusun rapi dan mudah diunduh.",
-    "harga": 150000
+    "harga": 150000,
+    "isJasa": true
   },
   {
     "id": "sp-kelas-4",
@@ -141,7 +144,8 @@
     "kelas": 4,
     "mapel": "Semua Mapel",
     "deskripsi": "Paket sistem pembelajaran kelas 4 mencakup media, RPP, dan worksheet untuk seluruh tema semester 1.",
-    "harga": 150000
+    "harga": 150000,
+    "isJasa": true
   },
   {
     "id": "sp-kelas-5",
@@ -150,7 +154,8 @@
     "kelas": 5,
     "mapel": "Semua Mapel",
     "deskripsi": "Sistem pembelajaran kelas 5 lengkap dengan perangkat dan media yang saling terhubung untuk memudahkan mengajar.",
-    "harga": 150000
+    "harga": 150000,
+    "isJasa": true
   },
   {
     "id": "sp-kelas-6",
@@ -159,7 +164,8 @@
     "kelas": 6,
     "mapel": "Semua Mapel",
     "deskripsi": "Paket lengkap kelas 6 termasuk pendamping persiapan ujian, selaras dengan target kompetensi akhir SD.",
-    "harga": 150000
+    "harga": 150000,
+    "isJasa": true
   },
   {
     "id": "ws-kelas-1",
@@ -222,7 +228,8 @@
     "kelas": null,
     "mapel": "Manajemen Sekolah",
     "deskripsi": "Aplikasi absensi berbasis web untuk satu sekolah, lengkap dengan rekap harian dan data siswa.",
-    "harga": 500000
+    "harga": 500000,
+    "isJasa": true
   },
   {
     "id": "wa-plus",
@@ -231,6 +238,7 @@
     "kelas": null,
     "mapel": "Manajemen Sekolah",
     "deskripsi": "Versi lengkap web absensi dengan rekap otomatis, laporan bulanan, dan ekspor data untuk pihak sekolah.",
-    "harga": 750000
+    "harga": 75000,
+    "isJasa": true
   }
 ]

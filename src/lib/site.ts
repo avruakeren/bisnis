@@ -3,9 +3,9 @@ export const site = {
   tagline: "Digital Education Agency",
   description:
     "Jasa digital, akademik, dan perangkat pembelajaran yang dapat disesuaikan dengan kebutuhanmu.",
-  whatsapp: "6285778078397",
-  whatsappDisplay: "0857 7807 8397",
-  instagram: "studia_co",
+  whatsapp: "62895626747960",
+  whatsappDisplay: "0895 6267 4796",
+  instagram: "studiadotco",
   email: "sinibantu.id@gmail.com",
   hours: {
     weekday: "Senin - Sabtu",

@@ -17,6 +17,13 @@ const jenisOptions = [
 ] as const;
 
 type JenisFilter = (typeof jenisOptions)[number];
+type KategoriFilter = "website" | "akademik" | "perangkat" | "";
+
+const kategoriToJenis: Record<string, string[]> = {
+  website: ["web-absensi"],
+  akademik: ["rpp", "worksheet"],
+  perangkat: ["sistem-pembelajaran", "media-pembelajaran"],
+};
 
 type CatalogProps = {
   items: CatalogItem[];
@@ -25,6 +32,19 @@ type CatalogProps = {
 export default function Catalog({ items }: CatalogProps) {
   const [kelasFilter, setKelasFilter] = useState<number | null>(null);
   const [jenisFilter, setJenisFilter] = useState<JenisFilter>("semua");
+
+  // Initialize kategoriFilter from URL hash (lazy state)
+  const getInitialKategori = (): KategoriFilter => {
+    if (typeof window === "undefined") return "";
+    const hash = window.location.hash.slice(1);
+    if (hash === "website" || hash === "akademik" || hash === "perangkat") {
+      return hash;
+    }
+    return "";
+  };
+
+  const [kategoriFilter, setKategoriFilter] = useState<KategoriFilter>(getInitialKategori);
+  const [searchQuery, setSearchQuery] = useState("");
   const [selectedItem, setSelectedItem] = useState<CatalogItem | null>(null);
   const [addedItem, setAddedItem] = useState<string | null>(null);
   const { addItem } = useCart();
@@ -33,16 +53,24 @@ export default function Catalog({ items }: CatalogProps) {
     return items.filter((item) => {
       const kelasOk = kelasFilter === null || item.kelas === kelasFilter;
       const jenisOk = jenisFilter === "semua" || item.jenis === jenisFilter;
-      return kelasOk && jenisOk;
+      let kategoriOk = true;
+      if (kategoriFilter) {
+        kategoriOk = kategoriToJenis[kategoriFilter].includes(item.jenis);
+      }
+      const searchOk =
+        item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.deskripsi.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        jenisLabel[item.jenis].toLowerCase().includes(searchQuery.toLowerCase());
+      return kelasOk && jenisOk && kategoriOk && searchOk;
     });
-  }, [items, kelasFilter, jenisFilter]);
+  }, [items, kelasFilter, jenisFilter, kategoriFilter, searchQuery]);
 
   const activeFilterClass = "bg-primary text-on-primary ring-primary";
   const inactiveFilterClass =
     "bg-white/60 text-zinc-600 ring-white/70 backdrop-blur-md hover:bg-white/90";
 
   return (
-    <div className="mx-auto flex w-full max-w-5xl flex-1 flex-col px-6 py-12">
+    <div className="mx-auto flex w-full max-w-7xl flex-1 flex-col px-6 py-12">
       <header className="mb-8">
         <h1 className="text-3xl font-bold tracking-tight">
           Katalog Produk Pembelajaran
@@ -52,6 +80,63 @@ export default function Catalog({ items }: CatalogProps) {
           RPP, worksheet, hingga web absensi.
         </p>
       </header>
+
+      {/* Search Bar */}
+      <div className="mb-6">
+        <input
+          type="text"
+          placeholder="Cari produk, jenis, atau deskripsi..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="w-full rounded-xl border border-outline-variant/30 bg-white/60 px-4 py-2.5 text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
+        />
+      </div>
+
+      {/* Kategori Filter */}
+      <section aria-label="Filter kategori" className="mb-4">
+        <div className="flex flex-wrap items-center gap-2">
+          <button
+            type="button"
+            onClick={() => setKategoriFilter("")}
+            aria-pressed={kategoriFilter === ""}
+            className={`rounded-full px-4 py-1.5 text-sm font-medium ring-1 transition-all ${
+              kategoriFilter === "" ? activeFilterClass : inactiveFilterClass
+            }`}
+          >
+            Semua Kategori
+          </button>
+          <button
+            type="button"
+            onClick={() => setKategoriFilter("website")}
+            aria-pressed={kategoriFilter === "website"}
+            className={`rounded-full px-4 py-1.5 text-sm font-medium ring-1 transition-all ${
+              kategoriFilter === "website" ? activeFilterClass : inactiveFilterClass
+            }`}
+          >
+            Website
+          </button>
+          <button
+            type="button"
+            onClick={() => setKategoriFilter("akademik")}
+            aria-pressed={kategoriFilter === "akademik"}
+            className={`rounded-full px-4 py-1.5 text-sm font-medium ring-1 transition-all ${
+              kategoriFilter === "akademik" ? activeFilterClass : inactiveFilterClass
+            }`}
+          >
+            Kebutuhan Akademik
+          </button>
+          <button
+            type="button"
+            onClick={() => setKategoriFilter("perangkat")}
+            aria-pressed={kategoriFilter === "perangkat"}
+            className={`rounded-full px-4 py-1.5 text-sm font-medium ring-1 transition-all ${
+              kategoriFilter === "perangkat" ? activeFilterClass : inactiveFilterClass
+            }`}
+          >
+            Perangkat Pembelajaran
+          </button>
+        </div>
+      </section>
 
       <section aria-label="Filter katalog" className="mb-8 space-y-4">
         <div
@@ -98,7 +183,7 @@ export default function Catalog({ items }: CatalogProps) {
 
       {filteredItems.length > 0 ? (
         <div
-          key={`${kelasFilter}-${jenisFilter}`}
+          key={`${kelasFilter}-${jenisFilter}-${kategoriFilter}`}
           className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
         >
           {filteredItems.map((item, index) => {
@@ -114,7 +199,13 @@ export default function Catalog({ items }: CatalogProps) {
                   wide={wide}
                   onDetail={() => setSelectedItem(item)}
                   onAddToCart={() => {
-                    addItem({ id: item.id, title: item.title, harga: item.harga });
+                    addItem({
+                      id: item.id,
+                      title: item.title,
+                      harga: item.harga,
+                      isJasa: item.isJasa,
+                      mapel: item.mapel,
+                    });
                     setAddedItem(item.title);
                     setTimeout(() => setAddedItem(null), 2000);
                   }}

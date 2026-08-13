@@ -45,8 +45,8 @@ const services = [
       "Website Sekolah",
       "Custom Website",
     ],
-    href: waLink(`Halo ${site.name}, saya tertarik dengan layanan Website.`),
-    external: true,
+    href: "/catalog#website",
+    external: false,
   },
   {
     icon: GraduationCap,
@@ -61,8 +61,8 @@ const services = [
       "Tugas Harian",
       "Perapihan Format Penulisan",
     ],
-    href: waLink(`Halo ${site.name}, saya butuh bantuan kebutuhan akademik.`),
-    external: true,
+    href: "/catalog#akademik",
+    external: false,
   },
   {
     icon: Notebook,

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCart } from "@/lib/cart-context";
 import { formatHarga } from "@/components/catalog/format";
-import { site } from "@/lib/site";
+import { site, waLink } from "@/lib/site";
 import { ArrowLeft, ArrowRight, CheckCircle, ShoppingCart } from "@phosphor-icons/react";
 
 const inputClass =
@@ -22,6 +22,9 @@ export default function CheckoutPage() {
   const [whatsapp, setWhatsapp] = useState("");
 
   const isValid = nama.trim() !== "" && sekolah.trim() !== "" && whatsapp.trim() !== "";
+
+  // Cek apakah semua item di keranjang adalah jasa
+  const allJasa = items.length > 0 && items.every((item) => item.isJasa);
 
   if (items.length === 0) {
     return (
@@ -45,7 +48,34 @@ export default function CheckoutPage() {
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
     if (!isValid) return;
-    setStep("qris");
+    if (allJasa) {
+      handleJasaToWhatsApp();
+    } else {
+      setStep("qris");
+    }
+  }
+
+  function handleJasaToWhatsApp() {
+    const itemList = items
+      .map((item) => `- ${item.title} (${item.qty}x)`)
+      .join("\n");
+
+    const message = [
+      `Halo ${site.name}, saya ingin konsultasi / pesan jasa ini.`,
+      "",
+      `Nama: ${nama.trim()}`,
+      `Sekolah: ${sekolah.trim()}`,
+      `WhatsApp: ${whatsapp.trim()}`,
+      "",
+      "Item yang ingin dipesan:",
+      itemList,
+      "",
+      `Total: ${formatHarga(totalHarga)}`,
+    ].join("\n");
+
+    clearCart();
+    window.open(waLink(message), "_blank");
+    router.push("/");
   }
 
   function handleConfirm() {
@@ -98,17 +128,21 @@ export default function CheckoutPage() {
         <span className={step === "data" ? "font-medium text-zinc-900" : "text-zinc-400"}>
           Data Diri
         </span>
-        <span className="text-zinc-300">—</span>
-        <span
-          className={`flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold ${
-            step === "qris" ? "bg-primary text-on-primary" : "bg-white/60 text-zinc-400 ring-1 ring-white/70"
-          }`}
-        >
-          2
-        </span>
-        <span className={step === "qris" ? "font-medium text-zinc-900" : "text-zinc-400"}>
-          Pembayaran
-        </span>
+        {!allJasa && (
+          <>
+            <span className="text-zinc-300">—</span>
+            <span
+              className={`flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold ${
+                step === "qris" ? "bg-primary text-on-primary" : "bg-white/60 text-zinc-400 ring-1 ring-white/70"
+              }`}
+            >
+              2
+            </span>
+            <span className={step === "qris" ? "font-medium text-zinc-900" : "text-zinc-400"}>
+              Pembayaran
+            </span>
+          </>
+        )}
       </div>
 
       <div className="mt-8 space-y-3">
@@ -189,7 +223,7 @@ export default function CheckoutPage() {
             disabled={!isValid}
             className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-medium text-on-primary transition-colors enabled:hover:bg-primary-container disabled:cursor-not-allowed disabled:opacity-50"
           >
-            Lanjut ke Pembayaran
+            {allJasa ? "Kirim ke Konsultasi WhatsApp" : "Lanjut ke Pembayaran"}
             <ArrowRight size={14} weight="bold" />
           </button>
         </form>

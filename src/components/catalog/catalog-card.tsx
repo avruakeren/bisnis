@@ -33,6 +33,11 @@ export default function CatalogCard({
           >
             {jenisLabel[item.jenis]}
           </span>
+          {item.isJasa && (
+            <span className="rounded-full bg-yellow-100/70 px-3 py-1 text-xs font-medium text-yellow-700 backdrop-blur-md">
+              Jasa
+            </span>
+          )}
           <span className="rounded-full bg-emerald-100/70 px-3 py-1 text-xs font-medium text-emerald-700 backdrop-blur-md">
             {item.kelas === null ? "Semua Kelas" : `Kelas ${item.kelas}`}
           </span>

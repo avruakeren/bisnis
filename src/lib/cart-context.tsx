@@ -7,6 +7,8 @@ export type CartItem = {
   title: string;
   harga: number;
   qty: number;
+  isJasa?: boolean;
+  mapel?: string;
 };
 
 type CartContextType = {

@@ -15,6 +15,7 @@ export type CatalogItem = {
   mapel: string;
   deskripsi: string;
   harga: number;
+  isJasa?: boolean;
 };
 
 export const catalogItems = catalogData as CatalogItem[];
