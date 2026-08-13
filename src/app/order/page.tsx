@@ -23,8 +23,8 @@ export default function CheckoutPage() {
 
   const isValid = nama.trim() !== "" && sekolah.trim() !== "" && whatsapp.trim() !== "";
 
-  // Cek apakah semua item di keranjang adalah jasa
-  const allJasa = items.length > 0 && items.every((item) => item.isJasa);
+  // Cek apakah ada item jasa di keranjang (sekalian WA konsultasi dulu)
+  const hasJasa = items.some((item) => item.isJasa);
 
   if (items.length === 0) {
     return (
@@ -48,7 +48,7 @@ export default function CheckoutPage() {
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
     if (!isValid) return;
-    if (allJasa) {
+    if (hasJasa) {
       handleJasaToWhatsApp();
     } else {
       setStep("qris");
@@ -128,7 +128,7 @@ export default function CheckoutPage() {
         <span className={step === "data" ? "font-medium text-zinc-900" : "text-zinc-400"}>
           Data Diri
         </span>
-        {!allJasa && (
+        {!hasJasa && (
           <>
             <span className="text-zinc-300">—</span>
             <span
@@ -223,7 +223,7 @@ export default function CheckoutPage() {
             disabled={!isValid}
             className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-medium text-on-primary transition-colors enabled:hover:bg-primary-container disabled:cursor-not-allowed disabled:opacity-50"
           >
-            {allJasa ? "Kirim ke Konsultasi WhatsApp" : "Lanjut ke Pembayaran"}
+            {hasJasa ? "Kirim ke Konsultasi WhatsApp" : "Lanjut ke Pembayaran"}
             <ArrowRight size={14} weight="bold" />
           </button>
         </form>
